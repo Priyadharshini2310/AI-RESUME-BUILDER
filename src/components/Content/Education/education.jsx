@@ -9,10 +9,10 @@ const Education = ({portfolioData}) => {
         </h2>
         <div className="p-6 mb-8 font-extrabold text-white">
           <p className="text-base font-bold text-center">
-            {portfolioData.attributes.educationDegreeName}
+            {portfolioData.educationDegreeName}
           </p>
           <p className="text-center text-white">
-            {portfolioData.attributes.educationYear} | {portfolioData.attributes.educationCgpa}
+            {portfolioData.educationYear} | {portfolioData.educationCgpa}
           </p>
         </div>
       </div>

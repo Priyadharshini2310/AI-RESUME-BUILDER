@@ -28,16 +28,29 @@ const GetUserPortfolios = (userId) =>
   axiosClient.get(`/user-portfolios?filters[userId][$eq]=${userId}`);
 
 // Update a portfolio by ID (PUT)
-const UpdatePortfolioById = (id, data) =>
-  axiosClient.put(`/user-portfolios/${id}`, data);
+// const UpdatePortfolioById = (id, data) =>
+//   axiosClient.put(`/user-portfolios/${id}`, data);
+const UpdatePortfolioById = async (portfolioId, data) => {
+  const res = await axiosClient.get(`/user-portfolios?filters[portfolioId][$eq]=${portfolioId}`);
+  const item = res?.data?.data?.[0];
+  if (!item) throw new Error("Portfolio not found");
+  return axiosClient.put(`/user-portfolios/${item.id}`, { data });
+};
 
 // Get a portfolio by ID (GET)
-const GetPortfolioById = (id) =>
-  axiosClient.get(`/user-portfolios/${id}?populate=*`);
+const GetPortfolioById = (portfolioId) =>
+  axiosClient.get(`/user-portfolios?filters[portfolioId][$eq]=${portfolioId}&populate=*`);
 
 // Delete a portfolio by ID (DELETE)
-const DeletePortfolioById = (id) =>
-  axiosClient.delete(`/user-portfolios/${id}`);
+// const DeletePortfolioById = (id) =>
+//   axiosClient.delete(`/user-portfolios/${id}`);
+const DeletePortfolioById = async (portfolioId) => {
+  const res = await axiosClient.get(`/user-portfolios?filters[portfolioId][$eq]=${portfolioId}`);
+  const item = res?.data?.data?.[0];
+  if (!item) throw new Error("Portfolio not found");
+  return axiosClient.delete(`/user-portfolios/${item.id}`);
+};
+
 
 export default{
     CreateNewResume,

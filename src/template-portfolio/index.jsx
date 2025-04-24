@@ -45,9 +45,13 @@ function TemplatePortfolio() {
 
     const fetchPortfolio = async () => {
       try {
+        
         const response = await GlobalApi.GetPortfolioById(id);
-        setPortfolioData(response.data.data);
-        console.log("Portfolio Data:", response.data.data); // Log the portfolio data to the console
+        const dataArray = response.data.data;
+        const attributes = dataArray[0].attributes;
+        setPortfolioData(attributes);
+        console.log("Portfolio Data:", response.data.data.attributes); // Log the portfolio data to the console
+      
       } catch (error) {
         console.error("Error fetching portfolio data:", error);
         navigate("/"); // fallback

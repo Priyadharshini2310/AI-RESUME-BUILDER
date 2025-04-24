@@ -18,7 +18,7 @@ const Experience = ({portfolioData}) => {
       {isHovered ? (
         <ReactTyped
           className="text-lg font-bold text-center text-white"
-          strings={[`${portfolioData.attributes.experience}`]}
+          strings={[`${portfolioData.experience}`]}
           typeSpeed={30}
           backSpeed={30}
           loop={false}

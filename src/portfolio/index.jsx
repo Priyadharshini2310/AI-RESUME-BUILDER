@@ -102,7 +102,7 @@ const Portfolio = () => {
       const res = await GlobalApi.CreateNewPortfolio(payload);
       console.log("✅ Portfolio created successfully:", res?.data);
       navigate(`/template-portfolio/${res.data.data.id}`);
-      console.log("id", res.data.data.id);
+      console.log("id", res.data.data.portfolioId);
     } catch (error) {
       console.error("❌ Error while submitting portfolio:", error.response?.data || error.message);
     }

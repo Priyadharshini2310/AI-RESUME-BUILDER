@@ -35,7 +35,7 @@
 import React from 'react';
 
 const TechStack = ({ portfolioData }) => {
-  const skills = portfolioData.attributes?.skills || [];
+  const skills = portfolioData?.skills || [];
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-6">

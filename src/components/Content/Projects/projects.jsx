@@ -473,7 +473,7 @@ import React, { useRef, useState, useEffect } from 'react';
 const Projects = ({ portfolioData }) => {
   const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const projects = portfolioData.attributes?.Project || [];
+  const projects = portfolioData?.Project || [];
   const shouldLoop = projects.length >= 5;
   const isSingle = projects.length === 1;
 
