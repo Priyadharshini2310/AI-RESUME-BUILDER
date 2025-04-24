@@ -44,7 +44,7 @@ const router=createBrowserRouter([
     element: <Portfolio />,
   },
   {
-    path: '/template-portfolio', // ✅ New Portfolio Route
+    path: '/template-portfolio/:id', // ✅ New Portfolio Route
     element: <TemplatePortfolio />,
   }
 ])

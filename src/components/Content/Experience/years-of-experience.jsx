@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import flying from "../../../assets/lookup.png";
 import {ReactTyped} from "react-typed"; // Import react-typed
 
-const Experience = () => {
+const Experience = ({portfolioData}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ const Experience = () => {
       {isHovered ? (
         <ReactTyped
           className="text-lg font-bold text-center text-white"
-          strings={["1+ year of experience in Full Stact and Application development"]}
+          strings={[`${portfolioData.attributes.experience}`]}
           typeSpeed={30}
           backSpeed={30}
           loop={false}

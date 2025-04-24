@@ -20,11 +20,35 @@ const UpdateResumeDetail=(id,data)=>axiosClient.put('/user-resumes/'+id,data)
 const GetResumeById = (id) => axiosClient.get(`/user-resumes/${id}?populate=*`);
 
 const DeleteResumeById=(id)=>axiosClient.delete('/user-resumes/'+id)
+// Create new portfolio entry (POST)
+const CreateNewPortfolio = (data) => axiosClient.post('/user-portfolios', data);
+
+// Get all portfolios for a userId (GET with filter)
+const GetUserPortfolios = (userId) =>
+  axiosClient.get(`/user-portfolios?filters[userId][$eq]=${userId}`);
+
+// Update a portfolio by ID (PUT)
+const UpdatePortfolioById = (id, data) =>
+  axiosClient.put(`/user-portfolios/${id}`, data);
+
+// Get a portfolio by ID (GET)
+const GetPortfolioById = (id) =>
+  axiosClient.get(`/user-portfolios/${id}?populate=*`);
+
+// Delete a portfolio by ID (DELETE)
+const DeletePortfolioById = (id) =>
+  axiosClient.delete(`/user-portfolios/${id}`);
 
 export default{
     CreateNewResume,
     GetUserResumes,
     UpdateResumeDetail,
     GetResumeById,
-    DeleteResumeById
+    DeleteResumeById,
+      // Portfolio
+  CreateNewPortfolio,
+  GetUserPortfolios,
+  UpdatePortfolioById,
+  GetPortfolioById,
+  DeletePortfolioById,
 }

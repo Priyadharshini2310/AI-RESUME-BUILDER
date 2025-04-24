@@ -1,6 +1,6 @@
 import React from "react";
 
-const Education = () => {
+const Education = ({portfolioData}) => {
   return (
     <div className="hover:scale-105 transition-transform duration-300 relative w-full max-w-4xl p-6 bg-blue-100/10 rounded-lg shadow-lg h-[30vh] backdrop-blur-sm md:p-12">
       <div className="flex flex-col items-center justify-center h-full">
@@ -8,11 +8,11 @@ const Education = () => {
           Education
         </h2>
         <div className="p-6 mb-8 font-extrabold text-white">
-          <p className="text-lg font-bold text-center">
-            Be in Computer Science
+          <p className="text-base font-bold text-center">
+            {portfolioData.attributes.educationDegreeName}
           </p>
           <p className="text-center text-white">
-            2021 - 2024 | CGPA: 8.1
+            {portfolioData.attributes.educationYear} | {portfolioData.attributes.educationCgpa}
           </p>
         </div>
       </div>

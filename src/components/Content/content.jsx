@@ -4,6 +4,9 @@ import Contact from "./Contact/contact";
 import Intro from "./intro/intro";
 import About from "./About/about";
 import StartingAnimation from "../animations/starting-animation"; // Import the animation component
+import Education from "./Education/education";
+import Experience from "./Experience/years-of-experience";
+import Projects from "./Projects/projects";
 
 
 const MainExport = ({portfolioData}) => {
@@ -28,24 +31,24 @@ console.log("Pd",portfolioData);
       ) : (
         <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto my-10 space-y-4">
           <div className="w-full">
-            <Intro />
+            <Intro portfolioData= {portfolioData} />
           </div>
 
           <div>
-            <About />
+            <About portfolioData= {portfolioData} />
           </div>
           <div className="flex w-full space-y-4 md:space-y-0 md:space-x-4">
-            {/* <div className="w-full md:w-1/2">
-              <Education />
-            </div> */}
-            {/* <div className="w-full md:w-1/2">
-              <Experience />
-            </div> */}
+            <div className="w-full md:w-1/2">
+              <Education portfolioData= {portfolioData}/>
+            </div>
+            <div className="w-full md:w-1/2">
+              <Experience portfolioData= {portfolioData} />
+            </div>
           </div>
-          {/* <div>
-          <Projects />
-          </div> */}
-          {/* <Contact /> */}
+          <div>
+          <Projects portfolioData= {portfolioData} />
+          </div>
+          <Contact portfolioData= {portfolioData} />
         </div>
       )}
     </div>
