@@ -23,7 +23,7 @@
 // }
 
 // export default TemplatePortfolio;
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MainExport from "../components/Content/content";
 import GlobalApi from "../../service/GlobalApi"; // adjust path to where your axios functions are
