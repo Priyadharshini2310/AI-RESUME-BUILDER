@@ -21,7 +21,7 @@ const About = ({portfolioData} ) => {
               About
             </h1>
             <p className="mb-6 text-lg">
-              {portfolioData.About}
+              {portfolioData.attributes.About}
             </p>
 
             <TechStack portfolioData= {portfolioData} /> 

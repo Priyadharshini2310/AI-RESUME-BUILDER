@@ -38,20 +38,15 @@ function TemplatePortfolio() {
   useEffect(() => {
     if (!id) {
       console.error("No ID provided in URL");
-      
       navigate("/"); // Redirect if no ID
       return;
     }
 
     const fetchPortfolio = async () => {
       try {
-        
         const response = await GlobalApi.GetPortfolioById(id);
-        const dataArray = response.data.data;
-        const attributes = dataArray[0].attributes;
-        setPortfolioData(attributes);
-        console.log("Portfolio Data:", response.data.data.attributes); // Log the portfolio data to the console
-      
+        setPortfolioData(response.data.data);
+        console.log("Portfolio Data:", response.data.data); // Log the portfolio data to the console
       } catch (error) {
         console.error("Error fetching portfolio data:", error);
         navigate("/"); // fallback
