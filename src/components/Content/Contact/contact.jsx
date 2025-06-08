@@ -37,7 +37,7 @@ const Contact = ({portfolioData}) => {
             <FaWhatsapp />
           </a>
           <a
-            href={`https://www.linkedin.com/in/${portfolioData.attributes.contactLinkedIn}`}
+            href={`${portfolioData.attributes.contactLinkedIn}`}
             className="text-3xl text-blue-600 hover:text-blue-400"
             target="_blank"
             rel="noopener noreferrer"

@@ -7,7 +7,8 @@ import StartingAnimation from "../animations/starting-animation"; // Import the 
 import Education from "./Education/education";
 import Experience from "./Experience/years-of-experience";
 import Projects from "./Projects/projects";
-
+import { Link } from "react-router-dom";
+import { HomeIcon } from "lucide-react";
 
 const MainExport = ({portfolioData}) => {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -30,6 +31,7 @@ console.log("Pd",portfolioData);
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto my-10 space-y-4">
+          
           <div className="w-full">
             <Intro portfolioData= {portfolioData} />
           </div>

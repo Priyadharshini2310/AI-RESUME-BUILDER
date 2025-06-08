@@ -743,7 +743,7 @@
 import React, { useState } from "react";
 import {
   Container,
-  TextField,
+  TextField, 
   Button,
   Typography,
   Grid,
@@ -757,10 +757,16 @@ import GlobalApi from "../../service/GlobalApi";
 import { Brain, LoaderCircle, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { AIChatSession } from "../../service/AIModal";
+import { useLocation } from 'react-router-dom';
+import { useTemplate } from "@/context/TemplateContext";
+
 
 const Portfolio = () => {
   const { user } = useUser();
   const navigate = useNavigate();
+  const { selectedTemplateId } = useTemplate();
+
+console.log("Using template ID in form:", selectedTemplateId);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -939,12 +945,14 @@ Return a JSON object with the key "project_description" and the value as plain t
         userEmail,
         userName,
         title: `${formData.name}'s Portfolio`,
+        templateId: selectedTemplateId,
       },
     };
 
     try {
       const res = await GlobalApi.CreateNewPortfolio(payload);
-      navigate(`/template-portfolio/${res.data.data.id}`);
+      // navigate(`/template-portfolio1/${res.data.data.id}`);
+      navigate(`/dashboard/template-portfolio${selectedTemplateId}/${res.data.data.id}`);
     } catch (error) {
       console.error(
         "❌ Error while submitting portfolio:",
@@ -1186,11 +1194,11 @@ Return a JSON object with the key "project_description" and the value as plain t
                   }
                 }}
                 error={formData.experience.length > 315}
-  helperText={
-    formData.experience.length > 315
-      ? "Character limit exceeded! Max 315 allowed."
-      : `${formData.experience.length} / 315 characters`
-  }
+                helperText={
+                  formData.experience.length > 315
+                    ? "Character limit exceeded! Max 315 allowed."
+                    : `${formData.experience.length} / 315 characters`
+                }
               />
             </Grid>
 
@@ -1306,13 +1314,11 @@ Return a JSON object with the key "project_description" and the value as plain t
                         handleProjectChange(index, "description", input);
                       }}
                       error={project.description.length > 315}
-helperText={
-  project.description.length > 315
-    ? "Character limit exceeded! Max 315 allowed."
-    : `${project.description.length} / 315 characters`
-}
-
-                      
+                      helperText={
+                        project.description.length > 315
+                          ? "Character limit exceeded! Max 315 allowed."
+                          : `${project.description.length} / 315 characters`
+                      }
                       sx={{ ml: 2, mt: 3 }}
                     />
                     <Button

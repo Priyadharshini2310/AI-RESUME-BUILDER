@@ -41,7 +41,7 @@ const testimonials = [
     id: 2,
     name: "Build Your Portfolio with Ease",
     // link:"http://localhost:3000",
-    link:"/portfolio",
+    link:"/dashboard/portfolio",
     quote:
     "Showcase your work with our AI-powered portfolio generator. Create a stunning digital portfolio that helps employers see your value instantly.",
     image: "/portfolio.png",
